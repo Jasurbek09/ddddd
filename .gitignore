@@ -1,5 +1,0 @@
-*.pyc
-Pipfile
-Pipfile.lock
-db.sqlite3
-media/upload/*
