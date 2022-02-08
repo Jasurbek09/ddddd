@@ -1,36 +1,61 @@
 from django.contrib import admin
 from main.models import *
 
-class SiteuserAdmin(admin.ModelAdmin):
+
+# Register your models here.
+class PersonAdmin(admin.ModelAdmin):
     pass
-admin.site.register(Siteuser, SiteuserAdmin)
-
-
-class CourseCategoryAdmin(admin.ModelAdmin):
+class ServiceAdmin(admin.ModelAdmin):
     pass
-admin.site.register(CourseCategory, CourseCategoryAdmin)
-
-
-class CourseAdmin(admin.ModelAdmin):
+class InformationAdmin(admin.ModelAdmin):
     pass
-admin.site.register(Course, CourseAdmin)
-
-
-class CourseItemAdmin(admin.ModelAdmin):
+class ProjectTypeAdmin(admin.ModelAdmin):
     pass
-admin.site.register(CourseItem, CourseItemAdmin)
-
-
-class CourseItemParagraphAdmin(admin.ModelAdmin):
+class ProjectAdmin(admin.ModelAdmin):
     pass
-admin.site.register(CourseItemParagraph, CourseItemParagraphAdmin)
-
-
-class SiteuserCourseAdmin(admin.ModelAdmin):
+class CommentAdmin(admin.ModelAdmin):
     pass
-admin.site.register(SiteuserCourse, SiteuserCourseAdmin)
-
-
-class NewsAdmin(admin.ModelAdmin):
+class PlanAdmin(admin.ModelAdmin):
     pass
-admin.site.register(News, NewsAdmin)
+class PartnerAdmin(admin.ModelAdmin):
+    pass
+class PostCategoryAdmin(admin.ModelAdmin):
+    pass
+class PostAuthorAdmin(admin.ModelAdmin):
+    pass
+class PostAdmin(admin.ModelAdmin):
+    pass
+class NewAdmin(admin.ModelAdmin):
+    pass
+class QualificationAdmin(admin.ModelAdmin):
+    pass
+class ExperienceAdmin(admin.ModelAdmin):
+    pass
+class FAQAdmin(admin.ModelAdmin):
+    pass
+class PodpischikiAdmin(admin.ModelAdmin):
+    pass
+class StudentAdmin(admin.ModelAdmin):
+    pass
+class OthersAdmin(admin.ModelAdmin):
+    pass
+
+admin.site.register(Person, PersonAdmin)
+admin.site.register(Service, ServiceAdmin)
+admin.site.register(Information, InformationAdmin)
+admin.site.register(ProjectType, ProjectTypeAdmin)
+admin.site.register(Project, ProjectAdmin)
+admin.site.register(Comment, CommentAdmin)
+admin.site.register(Plan, PlanAdmin)
+admin.site.register(Partner, PartnerAdmin)
+admin.site.register(PostCategory, PostCategoryAdmin)
+admin.site.register(PostAuthor, PostAuthorAdmin)
+admin.site.register(Post, PostAdmin)
+admin.site.register(New, NewAdmin)
+admin.site.register(Qualification, QualificationAdmin)
+admin.site.register(Experience, ExperienceAdmin)
+admin.site.register(FAQ, FAQAdmin)
+admin.site.register(Podpischiki, PodpischikiAdmin)
+admin.site.register(Student, StudentAdmin)
+admin.site.register(Others, OthersAdmin)
+

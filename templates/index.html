@@ -1,141 +1,152 @@
-{% extends 'base.html'%}
-{##}
-{#{% if active_user %}#}
-{#ID->{{ active_user.id }}.<br>#}
-{#Last Name->{{ active_user.last_name }}.<br>#}
-{#First Name->{{ active_user.first_name }}.<br>#}
-{#Middle Name->{{ active_user.middle_name }}.<br>#}
-{#Phone->{{ active_user.phone }}.<br>#}
-{#IIN->{{ active_user.iin }}.<br>#}
-{#Email->{{ active_user.email }}.<br>#}
-{##}
-{#    <a href="/edit">Edit</a><br><br>#}
-{#    <a href="/logout">logout</a><br><br>#}
-{##}
-{#{% else %}#}
-{#    <h2>#}
-{#    Hech narsa topilmadi#}
-{#    </h2>#}
-{#    <a href="/login">LOGIN</a>#}
-{##}
-{#{% endif %}#}
-{##}
+{%extends 'base.html' %}
 
-{% block content %}
+{% block container %}
 
 
 
+			<!-- start banner Area -->
+			<section class="banner-area">
+				<div class="container">
+					<div class="row fullscreen align-items-center justify-content-between">
+						<div class="col-lg-6 col-md-6 banner-left">
+							<h6>This is me</h6>
+							<h1>{{ chel1.author.fio}}</h1>
+							<p>
+								{{ chel1.author.description }}
+							</p>
+							<a href="#" class="primary-btn text-uppercase">discover now</a>
+						</div>
+						<div class="col-lg-6 col-md-6 banner-right d-flex align-self-end">
+							<img class="img-fluid" src="/media/{{ chel1.author.logo}}" alt="" style="width: 100%">
+						</div>
+					</div>
+				</div>					
+			</section>
+			<!-- End banner Area -->
 
+			<!-- Start home-about Area -->
+			<section class="home-about-area pt-120">
+				<div class="container">
+					<div class="row align-items-center justify-content-between">
+						<div class="col-lg-6 col-md-6 home-about-left">
+							<img class="img-fluid" src="/media/{{ chel2.author.logo }}" alt="" style="width: 100% ;">
+						</div>
+						<div class="col-lg-5 col-md-6 home-about-right">
+							<h6>About Me</h6>
+							<h1 class="text-uppercase">{{ chel2.author.fio}}</h1>
+							<p>
+								{{ chel2.author.description }}
+							</p>
+							<a href="#" class="primary-btn text-uppercase">View Full Details</a>
+						</div>
+					</div>
+				</div>	
+			</section>
+			<!-- End home-about Area -->
 
+			<!-- Start services Area -->
+			<section class="services-area section-gap">
+				<div class="container">
+		            <div class="row d-flex justify-content-center">
+		                <div class="menu-content  col-lg-7">
+		                    <div class="title text-center">
+		                        <h1 class="mb-10">{{ other_item.my_offered_services_title }}</h1>
+		                        <p>{{ other_item.my_offered_services_desc }}</p>
+		                    </div>
+		                </div>
+		            </div>						
+					<div class="row">
+						{% for serv in services %}
+						<div class="col-lg-4 col-md-6">
+							<div class="single-services">
+								<p><img src="/media/{{ serv.logo }}" alt=""></p>
+								<a href="#"><h4>{{ serv.title }}</h4></a>
+								<p>
+									{{ serv.description}}
+								</p>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>	
+			</section>
+			<!-- End services Area -->	
 
+			<!-- Start fact Area -->
+			<section class="facts-area section-gap" id="facts-area">
+				<div class="container">				
+					<div class="row">
+						<div class="col-lg-3 col-md-6 single-fact">
+							<h1 class="counter">2536</h1>
+							<p>Projects Completed</p>
+						</div>
+						<div class="col-lg-3 col-md-6 single-fact">
+							<h1 class="counter">6784</h1>
+							<p>Happy Clients</p>
+						</div>
+						<div class="col-lg-3 col-md-6 single-fact">
+							<h1 class="counter">2239</h1>
+							<p>Cups of Coffee</p>
+						</div>	
+						<div class="col-lg-3 col-md-6 single-fact">
+							<h1 class="counter">435</h1>
+							<p>Real Professionals</p>
+						</div>												
+					</div>
+				</div>	
+			</section>
+			<!-- end fact Area -->	
 
-    <div class="middle main-info">
-        <div class="main-info-left">
-            <h3>Онлайн школа IT профессий</h3>
-            <h5>и сообщество програмиистов</h5>
-            <h6>Обучаем веб програмиирование, создание игр и разработка ПО. Проходите курсы, решайте задачи, просматривайте новости и становитесь настоящими мастерами программирования</h6>
-            <a href="#" class="btn btn-danger">Онлайн обучение</a>
-        </div>
-        <div class="main-info-right">
-            <img src="media/images/glav.svg">
-        </div>
-    </div>
+{% include 'partfolio_kalonka.html' %}
 
+{% include 'comentary.html' %}
 
-    <div class="line index-video">
-        <div class="middle">
-            <div class="index-video-title">
-                <h3>Видеокурсы <a href="/course" class="btn btn-danger">Все курсы ({{ course_count }})</a></h3>
-                <p class="index-video-desc">В нашем сообществе программистов на данный момент представлено 84 курса, большинство из которых являются бесплатными.
-                    Вы можете приступить к изучению как платных, так и бесплатных курсов прямо сейчас. Ниже представлено несколько случайных курсов на сайте.</p>
-            </div>
+{% include 'plan_kalonka.html' %}
+	
+			<!-- Start recent-blog Area -->
+			<section class="recent-blog-area section-gap">
+				<div class="container">
+					<div class="row justify-content-center">
+						<div class="col-md-8 pb-30 header-text">
+							<h1>{{ other_item.Latest_Posts_From_Our_Blog }}</h1>
+							<p>
+								{{ other_item.Latest_Posts_From_Our_Blog_desc }}
+							</p>
+						</div>
+					</div>
+					<div class="row">
+                        {% for post in posts %}
+						<div class="single-recent-blog col-lg-4 col-md-4">
+							<div class="thumb">
+								<img class="f-img img-fluid mx-auto" src="/media/{{ post.logo }}" alt="">
+							</div>
+							<div class="bottom d-flex justify-content-between align-items-center flex-wrap">
+								<div>
+									<img class="img-fluid" src="/media/{{ post.postauthor.logo}}" alt="">
+									<a href="#"><span>{{ post.postauthor.fio }}</span></a>
+								</div>
+								<div class="meta">
+                                    {{ post.pub_date}}
+									<span class="lnr lnr-heart"></span>{{post.like_count }}
+									<span class="lnr lnr-bubble"></span>{{post.comment_count }}
+								</div>
+							</div>							
+							<a href="#">
+								<h4>{{post.title }}</h4>
+							</a>
+							<p>
+                                {{post.description2}}
+							</p>
+						</div>
+						{% endfor %}
+											
+												
+					</div>
+				</div>	
+			</section>
+			<!-- end recent-blog Area -->		
 
-            <div class="index-video-cont">
-                {% for course in courses  %}
-                <div class="index-video-cont-item">
-                    <div class="index-video-cont-item-top">
-                        <img src="media/{{ course.logo }}" alt="">
-                        <span>#{{ course.category.title }}</span>
-                    </div>
-                    <div class="index-video-cont-item-bottom">
-                        <a href="/course/{{ course.id }}/">  {{ course.title}}
-                       </a>
-                    </div>
-                </div>
-                {% endfor %}
-
-            </div>
-
-
-            <p>
-                <a href="/course" class="btn btn-danger">Просмотреть все курсы ({{ course_count }})</a>
-            </p>
-
-
-        </div>
-    </div>
-
-
-    <div class="line middle">
-        <div class="index-last-news">
-            <h3>Новые статьи</h3>
-            <div class="index-last-news-cont">
-                {% for n in new_list %}
-                <div class="index-last-news-cont-item">
-                    <div class="index-last-news-cont-item-top">
-                        <img src="media/{{ n.logo }}" alt="">
-                    </div>
-                    <div class="index-last-news-cont-item-bottom">
-                        <div class="index-last-news-cont-item-bottom-cont">
-                            <p>{{ n.mini_description }}</p>
-                        </div>
-                        <div class="index-last-news-cont-item-bottom-info">
-                            {{ n.views_count }} {{ n.create_datetime}}
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-            <p><a href="#" class="btn btn-danger">Посмотреть больше</a></p>
-        </div>
-    </div>
-
-
-
-    <div class="line middle">
-        <div class="index-last-news">
-            <h3>Популярные статьи</h3>
-            <div class="index-last-news-cont">
-                {% for n in popular_new_list %}
-                <div class="index-last-news-cont-item">
-                    <div class="index-last-news-cont-item-top">
-                        <img src="media/{{ n.logo }}" alt="">
-                    </div>
-                    <div class="index-last-news-cont-item-bottom">
-                        <div class="index-last-news-cont-item-bottom-cont">
-                            <p>{{ n.mini_description }}</p>
-                        </div>
-                        <div class="index-last-news-cont-item-bottom-info">
-                            {{ n.views_count }} {{ n.create_datetime}}
-                        </div>
-                    </div>
-                </div>
-                {% endfor %}
-            </div>
-
-            <p><a href="#" class="btn btn-danger">Посмотреть больше</a></p>
-        </div>
-    </div>
-
+		    <!-- Start brands Area -->
+		   {% include 'partner_exam.html' %}
+		    <!-- End brands Area -->			
 {% endblock %}
-
-
-    <div class="line footer">
-        <div class="middle">
-            © Все права защищены
-        </div>
-    </div>
-
-
-</body>
-</html>
